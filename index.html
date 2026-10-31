@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DRAG RACING BRASIL</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="topbar">
+    <div class="logo">DRAG <span>RACING</span> BRASIL</div>
+
+    <div class="credits">
+        CRÉDITOS: <strong id="credits">R$ 50.000</strong>
+    </div>
+</header>
+
+<nav class="navigation">
+    <button class="nav-btn active" data-screen="home">INÍCIO</button>
+    <button class="nav-btn" data-screen="garage">GARAGEM</button>
+    <button class="nav-btn" data-screen="catalog">CATÁLOGO</button>
+    <button class="nav-btn" data-screen="race">DRAGWAY</button>
+    <button class="nav-btn" data-screen="compare">COMPARAÇÃO</button>
+    <button class="nav-btn" data-screen="tuning">PREPARAÇÃO</button>
+</nav>
+
+<main>
+
+    <!-- INÍCIO -->
+    <section id="home" class="screen active">
+        <div class="hero">
+            <p class="tag">O MUNDO DA ARRANCADA</p>
+            <h1>DRAG RACING <span>BRASIL</span></h1>
+            <p>Monte seu projeto, prepare seu motor e acelere na pista.</p>
+
+            <button class="primary-btn" data-go="catalog">
+                EXPLORAR CARROS
+            </button>
+        </div>
+
+        <div class="home-info">
+            <div class="info-card">
+                <h3>GARAGEM</h3>
+                <p>Seus projetos e veículos.</p>
+            </div>
+            <div class="info-card">
+                <h3>DRAGWAY</h3>
+                <p>Dispute corridas de arrancada.</p>
+            </div>
+            <div class="info-card">
+                <h3>PREPARAÇÃO</h3>
+                <p>Melhore o desempenho.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- GARAGEM -->
+    <section id="garage" class="screen">
+        <div class="section-heading">
+            <p class="tag">SEUS PROJETOS</p>
+            <h1>MINHA GARAGEM</h1>
+        </div>
+
+        <div id="garage-list" class="car-grid"></div>
+    </section>
+
+    <!-- CATÁLOGO -->
+    <section id="catalog" class="screen">
+        <div class="section-heading">
+            <p class="tag">CONCESSIONÁRIA</p>
+            <h1>CATÁLOGO DE VEÍCULOS</h1>
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn active" data-category="Todos">TODOS</button>
+            <button class="filter-btn" data-category="Antigos">ANTIGOS</button>
+            <button class="filter-btn" data-category="Turbos">TURBOS</button>
+            <button class="filter-btn" data-category="Esportivos">ESPORTIVOS</button>
+        </div>
+
+        <div id="catalog-list" class="car-grid"></div>
+    </section>
+
+    <!-- DRAGWAY -->
+    <section id="race" class="screen">
+        <div class="section-heading">
+            <p class="tag">PISTA DE ARRANCADA</p>
+            <h1>DRAGWAY</h1>
+        </div>
+
+        <div class="race-layout">
+            <div class="race-view">
+                <div id="three-container"></div>
+
+                <div class="race-overlay">
+                    <span>DRAGWAY BRASIL</span>
+                    <strong id="race-status">AGUARDANDO LARGADA</strong>
+                </div>
+            </div>
+
+            <div class="dashboard">
+                <div class="dash-title">
+                    <span>FT</span>
+                    <strong>RACE DASH</strong>
+                </div>
+
+                <div class="speed-box">
+                    <small>VELOCIDADE</small>
+                    <div><span id="speed">0</span> <small>KM/H</small></div>
+                </div>
+
+                <div class="dash-grid">
+                    <div>
+                        <small>RPM</small>
+                        <strong id="rpm">900</strong>
+                    </div>
+                    <div>
+                        <small>MARCHA</small>
+                        <strong id="gear">N</strong>
+                    </div>
+                    <div>
+                        <small>DISTÂNCIA</small>
+                        <strong id="distance">0 m</strong>
+                    </div>
+                    <div>
+                        <small>TEMPO</small>
+                        <strong id="time">0.00 s</strong>
+                    </div>
+                </div>
+
+                
+<div class="race-buttons">
+    <button id="start-race" class="primary-btn">
+        ALINHAR / LARGAR
+    </button>
+
+    <button id="nos-button" class="nos-button">
+        🔥 ATIVAR TURBO NOS
+    </button>
+
+    <button id="reset-race" class="secondary-btn">
+        REINICIAR
+    </button>
+</div>
+
+
+                <p class="control-help">
+                    PC: segure ESPAÇO ou W para acelerar.
+                    Celular: use o botão de aceleração.
+                </p>
+            </div>
+        </div>
+
+        <div class="mobile-controls">
+            <button id="mobile-brake">FREIO</button>
+            <button id="mobile-gas">ACELERAR</button>
+        </div>
+    </section>
+
+    <!-- COMPARAÇÃO -->
+    <section id="compare" class="screen">
+        <div class="section-heading">
+            <p class="tag">DISPUTA DE DESEMPENHO</p>
+            <h1>COMPARAÇÃO</h1>
+        </div>
+
+        <div class="compare-panel">
+            <div>
+                <label>PRIMEIRO VEÍCULO</label>
+                <select id="compare-a"></select>
+            </div>
+
+            <div>
+                <label>SEGUNDO VEÍCULO</label>
+                <select id="compare-b"></select>
+            </div>
+
+            <button id="compare-button" class="primary-btn">COMPARAR</button>
+        </div>
+
+        <div id="compare-result" class="compare-result">
+            Escolha dois veículos para comparar.
+        </div>
+    </section>
+
+    <!-- PREPARAÇÃO -->
+    <section id="tuning" class="screen">
+        <div class="section-heading">
+            <p class="tag">OFICINA DE PERFORMANCE</p>
+            <h1>PREPARAÇÃO</h1>
+        </div>
+
+        <div id="tuning-content"></div>
+    </section>
+
+</main>
+
+<footer>
+    DRAG RACING BRASIL — PROJETO DE SIMULAÇÃO
+</footer>
+
+<script type="module" src="main.js"></script>
+
+</body>
+</html>

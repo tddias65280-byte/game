@@ -1,0 +1,1097 @@
+
+:root {
+    --bg: #090c12;
+    --surface: #111925;
+    --red: #ed353c;
+    --gold: #ffbd4a;
+    --text: #ffffff;
+    --muted: #98a6b7;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, sans-serif;
+}
+
+button, select {
+    font: inherit;
+    cursor: pointer;
+}
+
+.topbar {
+    height: 68px;
+    background: #0d131d;
+    border-bottom: 1px solid #293748;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 1000;
+    font-style: italic;
+}
+
+.logo span {
+    color: var(--red);
+}
+
+.credits {
+    color: var(--muted);
+}
+
+.credits strong {
+    color: var(--gold);
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    min-height: calc(100vh - 68px);
+}
+
+.sidebar {
+    background: #0d131d;
+    padding: 15px;
+    border-right: 1px solid #293748;
+}
+
+.sidebar button {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 7px;
+    background: transparent;
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.sidebar button:hover,
+.sidebar button.active {
+    background: #202b3a;
+    border-color: #46566a;
+}
+
+.content {
+    padding: 25px;
+    max-width: 1500px;
+    width: 100%;
+    margin: auto;
+}
+
+.screen {
+    display: none;
+}
+
+.screen.active {
+    display: block;
+}
+
+.hero {
+    min-height: 320px;
+    padding: 40px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background:
+        linear-gradient(90deg, #05080de8, #05080d55),
+        url("https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1600&q=85")
+        center/cover;
+}
+
+.hero h1 {
+    font-size: clamp(35px, 5vw, 55px);
+    font-weight: 1000;
+    font-style: italic;
+    margin: 10px 0;
+}
+
+.hero h1 span {
+    color: var(--red);
+}
+
+.hero p {
+    color: #c0cad5;
+}
+
+.btn-red,
+.btn-dark {
+    border: 0;
+    padding: 13px 18px;
+    border-radius: 7px;
+    font-weight: bold;
+    color: white;
+    margin: 5px;
+}
+
+.btn-red {
+    background: linear-gradient(135deg, #ff4a50, #b4101d);
+}
+
+.btn-dark {
+    background: #26364a;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 18px;
+}
+
+.panel {
+    background: var(--surface);
+    border: 1px solid #293748;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 12px;
+}
+
+.panel small {
+    color: var(--muted);
+}
+
+.panel h2 {
+    font-size: 19px;
+}
+
+.car-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.car-card {
+    padding: 0;
+    overflow: hidden;
+}
+
+.car-visual {
+    height: 120px;
+    background: radial-gradient(ellipse, #43546b, #111925);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.car-visual span {
+    font-weight: 1000;
+    color: white;
+    letter-spacing: 3px;
+}
+
+.car-info {
+    padding: 15px;
+}
+
+.car-info h3 {
+    font-size: 15px;
+}
+
+.spec-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 12px 0;
+}
+
+.spec-grid div {
+    padding: 9px;
+    background: #0a1018;
+    border-radius: 6px;
+}
+
+.spec-grid b {
+    display: block;
+    color: var(--gold);
+}
+
+.spec-grid small {
+    font-size: 9px;
+}
+
+.race-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: 15px;
+}
+
+.track-wrap {
+    position: relative;
+    background: #111b28;
+    border: 1px solid #34465c;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.track-wrap canvas {
+    display: block;
+    width: 100%;
+    height: 380px;
+}
+
+.track-overlay {
+    position: absolute;
+    top: 12px;
+    left: 15px;
+    right: 15px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    font-weight: bold;
+    pointer-events: none;
+}
+
+.track-overlay b {
+    color: var(--gold);
+}
+
+.race-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.race-buttons button,
+.mobile-controls button {
+    flex: 1;
+    padding: 13px;
+    background: var(--red);
+    color: white;
+    border: 0;
+    border-radius: 7px;
+    font-weight: bold;
+}
+
+.dashboard {
+    background: #080d14;
+    border: 1px solid #35465b;
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.dashboard h2 {
+    color: #43d59a;
+}
+
+.dashboard h2 span {
+    color: white;
+    font-size: 14px;
+}
+
+.speed {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.speed strong {
+    font-size: 50px;
+}
+
+.speed span {
+    color: var(--muted);
+}
+
+.meter {
+    height: 8px;
+    background: #263344;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.meter i {
+    display: block;
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, #43d59a, #ffbd4a, #ed353c);
+}
+
+.dash-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.dash-grid div {
+    padding: 10px;
+    background: #172231;
+    border-radius: 6px;
+    font-size: 11px;
+}
+
+.dash-grid b {
+    display: block;
+    font-size: 17px;
+    margin-top: 5px;
+}
+
+.race-result {
+    border-top: 1px solid #293748;
+    margin-top: 15px;
+    padding-top: 10px;
+}
+
+.race-result h2 {
+    color: var(--gold);
+}
+
+.compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+select {
+    width: 100%;
+    padding: 12px;
+    background: #0a1018;
+    color: white;
+    border: 1px solid #34465c;
+    border-radius: 7px;
+    margin: 8px 0;
+}
+
+.mobile-controls {
+    display: none;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+#toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 20px;
+    background: #26364a;
+    border-radius: 8px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#toast.show {
+    opacity: 1;
+}
+
+@media(max-width: 900px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        display: flex;
+        overflow-x: auto;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        gap: 5px;
+    }
+
+    .sidebar button {
+        white-space: nowrap;
+        width: auto;
+    }
+
+    .race-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width: 600px) {
+    .topbar {
+        height: 58px;
+        padding: 0 12px;
+    }
+
+    .logo {
+        font-size: 16px;
+    }
+
+    .content {
+        padding: 12px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .car-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .compare-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .track-wrap canvas {
+        height: 270px;
+    }
+
+    .mobile-controls {
+        display: flex;
+    }
+
+    .mobile-controls button {
+        padding: 20px 10px;
+    }
+}
+
+/* ==================================
+   CORREÇÃO DE ESTILO - DRAG RACING
+================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    background: #090c12;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+button,
+select {
+    font: inherit;
+    cursor: pointer;
+}
+
+/* CABEÇALHO */
+
+.topbar {
+    min-height: 75px;
+    padding: 12px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    background: #0d131d;
+    border-bottom: 1px solid #293748;
+}
+
+.logo {
+    font-size: clamp(18px, 3vw, 30px);
+    font-weight: 1000;
+    font-style: italic;
+}
+
+.logo span {
+    color: #ed353c;
+}
+
+.credits {
+    color: #98a6b7;
+    white-space: nowrap;
+}
+
+.credits strong {
+    color: #ffbd4a;
+}
+
+/* MENU */
+
+.navigation {
+    display: flex;
+    gap: 8px;
+    padding: 12px 18px;
+    background: #101722;
+    border-bottom: 1px solid #293748;
+    overflow-x: auto;
+}
+
+.nav-btn {
+    padding: 12px 17px;
+    flex-shrink: 0;
+    border: 1px solid #34465c;
+    border-radius: 6px;
+    background: #192536;
+    color: white;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.nav-btn:hover,
+.nav-btn.active {
+    background: #ed353c;
+    border-color: #ed353c;
+}
+
+/* CONTEÚDO */
+
+main {
+    width: 100%;
+    max-width: 1600px;
+    margin: auto;
+    padding: 25px;
+}
+
+.screen {
+    display: none;
+}
+
+.screen.active {
+    display: block;
+}
+
+.section-heading {
+    margin-bottom: 22px;
+}
+
+.section-heading h1 {
+    margin: 5px 0;
+    font-size: clamp(28px, 4vw, 42px);
+    font-style: italic;
+}
+
+.tag {
+    color: #ffbd4a;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* BOTÕES */
+
+.primary-btn,
+.secondary-btn {
+    border: 0;
+    border-radius: 8px;
+    padding: 14px 18px;
+    color: white;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.primary-btn {
+    background: #ed353c;
+}
+
+.primary-btn:hover {
+    background: #ff5057;
+    transform: translateY(-2px);
+}
+
+.secondary-btn {
+    background: #26364a;
+}
+
+.secondary-btn:hover {
+    background: #394d65;
+}
+
+/* INÍCIO */
+
+.hero {
+    min-height: 350px;
+    padding: 35px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background:
+        linear-gradient(90deg, #05080df0, #05080d55),
+        url("https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1600&q=85")
+        center/cover;
+}
+
+.hero h1 {
+    font-size: clamp(35px, 5vw, 60px);
+    font-style: italic;
+}
+
+.hero h1 span {
+    color: #ed353c;
+}
+
+.home-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.info-card,
+.panel {
+    padding: 20px;
+    background: #111925;
+    border: 1px solid #293748;
+    border-radius: 10px;
+}
+
+/* CATÁLOGO E GARAGEM */
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.filter-btn {
+    padding: 10px 16px;
+    border: 1px solid #34465c;
+    border-radius: 6px;
+    background: #192536;
+    color: white;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: #ed353c;
+}
+
+.car-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.car-card {
+    overflow: hidden;
+    background: #111925;
+    border: 1px solid #293748;
+    border-radius: 10px;
+}
+
+.car-visual {
+    height: 155px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(ellipse, #43546b, #111925);
+}
+
+.car-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.car-info {
+    padding: 15px;
+}
+
+.car-info h3 {
+    margin-top: 0;
+}
+
+.spec-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 12px 0;
+}
+
+.spec-grid div {
+    padding: 9px;
+    background: #0a1018;
+    border-radius: 6px;
+}
+
+.spec-grid b {
+    display: block;
+    color: #ffbd4a;
+}
+
+/* PISTA E CORRIDA */
+
+.race-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: 18px;
+    align-items: stretch;
+    width: 100%;
+}
+
+.race-view {
+    position: relative;
+    min-width: 0;
+    min-height: 420px;
+    height: 420px;
+    overflow: hidden;
+    border: 1px solid #34465c;
+    border-radius: 12px;
+    background: #536b40;
+}
+
+#three-container {
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    overflow: hidden;
+}
+
+#three-container canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.race-overlay {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    pointer-events: none;
+    text-shadow: 1px 1px 4px #000;
+}
+
+.race-overlay strong {
+    color: #ffbd4a;
+}
+
+/* PAINEL FUELTECH */
+
+.dashboard {
+    min-width: 0;
+    padding: 18px;
+    background: #080d14;
+    border: 1px solid #35465b;
+    border-radius: 12px;
+}
+
+.dash-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.dash-title span {
+    padding: 8px;
+    border-radius: 5px;
+    background: #ed353c;
+    font-weight: bold;
+}
+
+.dash-title strong {
+    font-size: 17px;
+}
+
+.speed-box {
+    padding: 15px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    background: #111925;
+}
+
+.speed-box > div {
+    margin-top: 5px;
+    font-size: 15px;
+}
+
+.speed-box #speed {
+    font-size: 45px;
+    font-weight: bold;
+    color: #43d59a;
+}
+
+.speed-box small,
+.dash-grid small {
+    color: #98a6b7;
+}
+
+.dash-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.dash-grid div {
+    min-width: 0;
+    padding: 12px 9px;
+    background: #172231;
+    border-radius: 7px;
+}
+
+.dash-grid strong {
+    display: block;
+    margin-top: 6px;
+    font-size: 19px;
+    overflow-wrap: anywhere;
+}
+
+.race-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.race-buttons button {
+    min-width: 0;
+    padding: 13px 8px;
+    font-size: 13px;
+}
+
+.control-help {
+    color: #98a6b7;
+    font-size: 12px;
+    line-height: 1.5;
+    margin-top: 15px;
+}
+
+.mobile-controls {
+    display: none;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.mobile-controls button {
+    flex: 1;
+    min-height: 60px;
+    border: 0;
+    border-radius: 8px;
+    background: #ed353c;
+    color: white;
+    font-weight: bold;
+}
+
+/* COMPARAÇÃO E PREPARAÇÃO */
+
+.compare-panel {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    align-items: end;
+    gap: 15px;
+    padding: 20px;
+    background: #111925;
+    border: 1px solid #293748;
+    border-radius: 10px;
+}
+
+.compare-panel label {
+    display: block;
+    color: #98a6b7;
+    font-size: 12px;
+}
+
+.compare-result,
+#tuning-content {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background: #111925;
+    border: 1px solid #293748;
+}
+
+select {
+    width: 100%;
+    padding: 12px;
+    background: #0a1018;
+    color: white;
+    border: 1px solid #34465c;
+    border-radius: 7px;
+}
+
+/* RODAPÉ */
+
+footer {
+    padding: 22px;
+    text-align: center;
+    color: #98a6b7;
+    border-top: 1px solid #293748;
+    font-size: 12px;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 950px) {
+    .race-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard {
+        width: 100%;
+    }
+
+    .home-info {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    main {
+        padding: 12px;
+    }
+
+    .topbar {
+        padding: 12px;
+        flex-wrap: wrap;
+    }
+
+    .navigation {
+        padding: 9px;
+    }
+
+    .nav-btn {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    .race-view,
+    #three-container {
+        height: 280px;
+        min-height: 280px;
+    }
+
+    .mobile-controls {
+        display: flex;
+    }
+
+    .compare-panel {
+        grid-template-columns: 1fr;
+    }
+
+    .car-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .car-visual {
+        height: 110px;
+    }
+
+    .race-buttons {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* CARTÕES DOS VEÍCULOS */
+
+.car-art {
+    height: 155px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at center, #43546b, #111925 75%);
+}
+
+.car-art svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 8px;
+}
+
+.car-card {
+    background: #111925;
+    border: 1px solid #293748;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.car-card:hover {
+    transform: translateY(-4px);
+    border-color: #ed353c;
+}
+
+.selected-car {
+    border: 2px solid #43d59a;
+}
+
+.car-price {
+    color: #ffbd4a;
+    font-weight: bold;
+}
+
+.card-btn {
+    width: 100%;
+    padding: 12px;
+    border: 0;
+    border-radius: 6px;
+    background: #ed353c;
+    color: white;
+    font-weight: bold;
+}
+
+.card-btn:hover:not(:disabled) {
+    background: #ff5057;
+}
+
+.card-btn:disabled {
+    background: #26364a;
+    color: #aab5c2;
+    cursor: not-allowed;
+}
+
+.car-info p {
+    color: #b5c0ce;
+    font-size: 13px;
+}
+
+@media(max-width: 600px) {
+    .car-art {
+        height: 115px;
+    }
+
+    .car-info {
+        padding: 10px;
+    }
+
+    .car-info h3 {
+        font-size: 13px;
+    }
+}
+
+/* BOTÃO TURBO NOS */
+
+.nos-button {
+    flex: 1;
+    min-height: 48px;
+    padding: 13px;
+    border: 2px solid #ff9d00;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #ff8c00, #e62916);
+    color: white;
+    font-weight: 900;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.nos-button:hover:not(:disabled) {
+    transform: scale(1.04);
+    box-shadow: 0 0 20px #ff5e00;
+}
+
+.nos-button:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+.nos-button:active:not(:disabled) {
+    transform: scale(0.97);
+}
